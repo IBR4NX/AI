@@ -25,7 +25,14 @@ app.add_middleware(
     
 )
 app.state.start_time = time.time()
-# app.include_router(n, prefix) 
+# app.include_router(n, prefix)
+@app.get("/api/items")
+def read_items():
+    return {"items": ["item1", "item2", "item3"]}
+@app.post("/api/items")
+def create_item(item: dict):
+    return {"message": "Item created successfully", "item": item}
+ 
 @timer
 @app.get("/")
 def home(request: Request):
