@@ -26,8 +26,8 @@ app.add_middleware(
 )
 
 # app.include_router(n, prefix) 
-@timer
 @app.get("/")
+@timer
 def home(request: Request):
     request
     return {"message": "Backend Running Successfully on Server "}
