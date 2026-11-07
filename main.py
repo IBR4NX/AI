@@ -26,8 +26,8 @@ app.add_middleware(
 )
 app.state.start_time = time.time()
 # app.include_router(n, prefix) 
-@app.get("/")
 @timer
+@app.get("/")
 def home(request: Request):
     request
     return {"message": "Backend Running Successfully on Server "}
