@@ -1,5 +1,5 @@
 import time
-from fastapi import FastAPI as FastAPI,Request
+from fastapi import FastAPI as FastAPI,Request,HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 # import os, math, tempfile ,signal, subprocess,uuid
 # from urllib.parse import urlparse, parse_qs
@@ -24,12 +24,19 @@ app.add_middleware(
     allow_headers=["*"],
     
 )
-
+app.state.start_time = time.time()
 # app.include_router(n, prefix) 
 @app.get("/")
 @timer
 def home(request: Request):
     request
     return {"message": "Backend Running Successfully on Server "}
+@app.get("/health")
+def health_check():
+    uptime = time.time() - app.state.start_time
+    return {"status": "healthy", "uptime": uptime}
+@app.get("/test/404")
+def test_404():
+    raise HTTPException(status_code=404, detail="This is a test 404 error")
 
 # if __name__ == "__main__":
