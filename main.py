@@ -15,7 +15,10 @@ def timer(func):
         return result
     return wrapper
 
-app = FastAPI(title="Video API Backend 🚀")
+app = FastAPI(
+    title="My API",
+    version="1.0.0"
+)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  
