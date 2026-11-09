@@ -1,8 +1,6 @@
 from sqlalchemy import select, update
 from sqlalchemy.orm import Session
-
 from app.modules.users.models import User
-
 
 class UserRepository:
 

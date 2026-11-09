@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
-from app.modules.users.router import router as users_router
+from app.modules.users.session_router import router as users_router
 from app.core.healthy import router as healthy_router
 app = FastAPI(
     title="AI API by Ibrahim Al-Mekhlafi",

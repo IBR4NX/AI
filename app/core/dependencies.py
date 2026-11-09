@@ -3,7 +3,7 @@ from fastapi.security import OAuth2PasswordBearer
 from jwt import InvalidTokenError
 from sqlalchemy.orm import Session
 
-from app.core.jwt import decode_access_token
+from app.core.access_token import decode_access_token
 from app.database.session import get_db
 from app.modules.users.models import User
 from app.modules.users.repository import UserRepository
